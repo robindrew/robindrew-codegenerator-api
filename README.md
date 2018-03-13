@@ -1,2 +1,2 @@
 # robindrew-codegenerator-api
-Java Code Generator API
+Java Code Generation API
