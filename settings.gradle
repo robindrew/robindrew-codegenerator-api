@@ -1,0 +1,4 @@
+rootProject.name = 'robindrew-codegenerator-api'
+
+include 'robindrew-common'
+project(":robindrew-common").projectDir = file('/../robindrew-common')
