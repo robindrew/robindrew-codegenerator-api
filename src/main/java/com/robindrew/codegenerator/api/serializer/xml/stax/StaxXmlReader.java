@@ -135,10 +135,10 @@ public class StaxXmlReader implements IXmlReader {
 		startElement(name);
 
 		// Parse the text - could be an end element if empty ...
-		String text = "";
+		StringBuilder text = new StringBuilder();
 		XMLEvent event = nextEvent();
-		if (event.getEventType() == XMLEvent.CHARACTERS) {
-			text = event.asCharacters().getData();
+		while (event.getEventType() == XMLEvent.CHARACTERS) {
+			text.append(event.asCharacters().getData());
 			event = nextEvent();
 		}
 
@@ -152,7 +152,7 @@ public class StaxXmlReader implements IXmlReader {
 		}
 
 		clearAttributes();
-		return text;
+		return text.toString();
 	}
 
 	@Override
