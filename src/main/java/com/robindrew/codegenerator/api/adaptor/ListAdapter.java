@@ -24,4 +24,12 @@ public class ListAdapter<F, T> {
 		return toList;
 	}
 
+	public <C extends Collection<? super T>> C adapt(Collection<? extends F> fromList, C toList) {
+		for (F from : fromList) {
+			T to = adapter.adapt(from);
+			toList.add(to);
+		}
+		return toList;
+	}
+
 }
