@@ -20,6 +20,12 @@ public class ErrorCodeAttributes implements IErrorCodeAttributes {
 
 	@Override
 	public IErrorCodeAttributes set(String key, String value) {
+		if (key.isEmpty()) {
+			throw new IllegalArgumentException("key is empty");
+		}
+		if (value.isEmpty()) {
+			throw new IllegalArgumentException("value is empty");
+		}
 		if (attributeMap == null) {
 			attributeMap = new HashMap<String, String>();
 		}

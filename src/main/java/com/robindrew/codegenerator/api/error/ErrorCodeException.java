@@ -8,6 +8,12 @@ public class ErrorCodeException extends RuntimeException implements IErrorCodeEx
 		throw new ErrorCodeException(errorCode);
 	}
 
+	public static final ErrorCodeException error(IErrorCode errorCode, String key, String value) {
+		ErrorCodeSet errors = new ErrorCodeSet();
+		errors.add(errorCode).set(key, value);
+		throw new ErrorCodeException(errors);
+	}
+
 	private final IErrorCodeSet errors;
 
 	public ErrorCodeException(IErrorCode error) {
