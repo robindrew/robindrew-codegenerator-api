@@ -10,6 +10,9 @@ public class IntegerSerializer extends ValueSerializer<Integer> {
 
 	@Override
 	public Integer readValue(String value) {
+		if (value.isEmpty()) {
+			return null;
+		}
 		return Integer.parseInt(value);
 	}
 

@@ -16,6 +16,9 @@ public class EnumSerializer<E extends Enum<E>> extends ValueSerializer<E> {
 
 	@Override
 	public E readValue(String value) {
+		if (value.isEmpty()) {
+			return null;
+		}
 		return Enum.valueOf(enumClass, value);
 	}
 }

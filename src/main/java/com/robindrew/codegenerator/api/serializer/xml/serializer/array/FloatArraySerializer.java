@@ -10,6 +10,9 @@ public class FloatArraySerializer extends ValueSerializer<float[]> {
 
 	@Override
 	public float[] readValue(String value) {
+		if (value.isEmpty()) {
+			return null;
+		}
 		ValueArray values = new ValueArray(value);
 		float[] array = new float[values.length()];
 		for (int i = 0; i < array.length; i++) {

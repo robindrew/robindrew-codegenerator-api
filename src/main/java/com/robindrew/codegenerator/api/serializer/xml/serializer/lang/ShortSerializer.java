@@ -10,6 +10,9 @@ public class ShortSerializer extends ValueSerializer<Short> {
 
 	@Override
 	public Short readValue(String value) {
+		if (value.isEmpty()) {
+			return null;
+		}
 		return Short.parseShort(value);
 	}
 }

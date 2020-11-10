@@ -10,6 +10,9 @@ public class CharacterSerializer extends ValueSerializer<Character> {
 
 	@Override
 	public Character readValue(String value) {
+		if (value.isEmpty()) {
+			return null;
+		}
 		return value.charAt(0);
 	}
 }

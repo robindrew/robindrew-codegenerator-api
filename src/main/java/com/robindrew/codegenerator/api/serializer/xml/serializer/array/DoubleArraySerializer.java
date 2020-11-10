@@ -10,6 +10,9 @@ public class DoubleArraySerializer extends ValueSerializer<double[]> {
 
 	@Override
 	public double[] readValue(String value) {
+		if (value.isEmpty()) {
+			return null;
+		}
 		ValueArray values = new ValueArray(value);
 		double[] array = new double[values.length()];
 		for (int i = 0; i < array.length; i++) {

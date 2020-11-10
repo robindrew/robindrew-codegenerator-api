@@ -10,6 +10,9 @@ public class BooleanArraySerializer extends ValueSerializer<boolean[]> {
 
 	@Override
 	public boolean[] readValue(String value) {
+		if (value.isEmpty()) {
+			return null;
+		}
 		ValueArray values = new ValueArray(value);
 		boolean[] array = new boolean[values.length()];
 		for (int i = 0; i < array.length; i++) {

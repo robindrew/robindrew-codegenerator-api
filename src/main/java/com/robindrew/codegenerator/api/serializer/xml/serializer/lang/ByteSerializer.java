@@ -10,6 +10,9 @@ public class ByteSerializer extends ValueSerializer<Byte> {
 
 	@Override
 	public Byte readValue(String value) {
+		if (value.isEmpty()) {
+			return null;
+		}
 		return Byte.parseByte(value);
 	}
 

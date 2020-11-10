@@ -10,6 +10,9 @@ public class ByteArraySerializer extends ValueSerializer<byte[]> {
 
 	@Override
 	public byte[] readValue(String value) {
+		if (value.isEmpty()) {
+			return null;
+		}
 		ValueArray values = new ValueArray(value);
 		byte[] array = new byte[values.length()];
 		for (int i = 0; i < array.length; i++) {

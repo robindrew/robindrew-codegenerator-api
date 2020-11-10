@@ -10,6 +10,9 @@ public class CharArraySerializer extends ValueSerializer<char[]> {
 
 	@Override
 	public char[] readValue(String value) {
+		if (value.isEmpty()) {
+			return null;
+		}
 		ValueArray values = new ValueArray(value);
 		char[] array = new char[values.length()];
 		for (int i = 0; i < array.length; i++) {

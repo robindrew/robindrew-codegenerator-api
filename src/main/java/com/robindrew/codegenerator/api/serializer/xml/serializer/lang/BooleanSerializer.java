@@ -10,6 +10,9 @@ public class BooleanSerializer extends ValueSerializer<Boolean> {
 
 	@Override
 	public Boolean readValue(String value) {
+		if (value.isEmpty()) {
+			return null;
+		}
 		return Boolean.parseBoolean(value);
 	}
 

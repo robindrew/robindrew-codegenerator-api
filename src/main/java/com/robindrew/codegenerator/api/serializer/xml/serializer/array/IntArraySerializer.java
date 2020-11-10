@@ -10,6 +10,9 @@ public class IntArraySerializer extends ValueSerializer<int[]> {
 
 	@Override
 	public int[] readValue(String value) {
+		if (value.isEmpty()) {
+			return null;
+		}
 		ValueArray values = new ValueArray(value);
 		int[] array = new int[values.length()];
 		for (int i = 0; i < array.length; i++) {

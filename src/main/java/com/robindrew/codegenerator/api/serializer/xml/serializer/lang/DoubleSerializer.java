@@ -10,6 +10,9 @@ public class DoubleSerializer extends ValueSerializer<Double> {
 
 	@Override
 	public Double readValue(String value) {
+		if (value.isEmpty()) {
+			return null;
+		}
 		return Double.parseDouble(value);
 	}
 }

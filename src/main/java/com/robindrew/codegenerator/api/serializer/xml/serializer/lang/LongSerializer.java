@@ -10,6 +10,9 @@ public class LongSerializer extends ValueSerializer<Long> {
 
 	@Override
 	public Long readValue(String value) {
+		if (value.isEmpty()) {
+			return null;
+		}
 		return Long.parseLong(value);
 	}
 

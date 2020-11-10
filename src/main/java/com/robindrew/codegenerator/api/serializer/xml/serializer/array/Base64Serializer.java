@@ -16,8 +16,11 @@ public class Base64Serializer extends ValueSerializer<byte[]> {
 	}
 
 	@Override
-	public byte[] readValue(String text) {
-		return Base64.decodeBase64(text);
+	public byte[] readValue(String value) {
+		if (value.isEmpty()) {
+			return null;
+		}
+		return Base64.decodeBase64(value);
 	}
 
 }

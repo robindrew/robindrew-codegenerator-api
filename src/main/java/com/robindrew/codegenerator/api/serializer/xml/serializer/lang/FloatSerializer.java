@@ -10,6 +10,9 @@ public class FloatSerializer extends ValueSerializer<Float> {
 
 	@Override
 	public Float readValue(String value) {
+		if (value.isEmpty()) {
+			return null;
+		}
 		return Float.parseFloat(value);
 	}
 

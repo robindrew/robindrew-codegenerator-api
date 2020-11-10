@@ -10,6 +10,9 @@ public class ShortArraySerializer extends ValueSerializer<short[]> {
 
 	@Override
 	public short[] readValue(String value) {
+		if (value.isEmpty()) {
+			return null;
+		}
 		ValueArray values = new ValueArray(value);
 		short[] array = new short[values.length()];
 		for (int i = 0; i < array.length; i++) {
