@@ -63,7 +63,7 @@ public class LocatorToServiceAdapter implements IBeanExecutorService {
 		Stopwatch timer = Stopwatch.createStarted();
 		int beanId = bean.getSerializationId();
 		try {
-			log.info("[Bean #" + number + "] Request: " + bean);
+			log.debug("[Bean #{}] Request: {}", number, bean);
 
 			R returnValue = locator.locateExecutor(bean).executeBean(bean);
 			long duration = stop(timer);
@@ -80,9 +80,9 @@ public class LocatorToServiceAdapter implements IBeanExecutorService {
 
 			IExecutableBeanResponse<R> response = new ExecutableBeanResponse<>(beanId, duration, ece.getErrors());
 			if (log.isDebugEnabled()) {
-				log.debug("[Bean #" + number + "] Response: " + response + " in " + timer);
+				log.debug("[Bean #{}] Response: {} in {}", number, response, timer);
 			} else {
-				log.info("[Bean #" + number + "] Request: " + bean + ", Errors: " + ece.getErrors() + " in " + timer);
+				log.debug("[Bean #{}] Request: {}, Errors: {} in {}", number, bean, ece.getErrors(), timer);
 			}
 			return response;
 
@@ -113,13 +113,13 @@ public class LocatorToServiceAdapter implements IBeanExecutorService {
 
 			// Exceeded execution limit?
 			if (timer.elapsed(MILLISECONDS) > getExecutionLimit()) {
-				log.info("[Bean #" + number + "] Request: " + bean + " in " + timer);
+				log.info("[Bean #{}] Request: {} in {}", number, bean, timer);
 				return;
 			}
 
 			// Debug enabled?
 			if (log.isDebugEnabled()) {
-				log.debug("[Bean #" + number + "] Request: " + bean + " in " + timer);
+				log.debug("[Bean #{}] Request: {} in {}", number, bean, timer);
 				return;
 			}
 		} catch (Exception e) {
