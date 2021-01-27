@@ -41,4 +41,8 @@ public class ErrorCodeException extends RuntimeException implements IErrorCodeEx
 		return errors;
 	}
 
+	public boolean hasError(IErrorCode code) {
+		return errors.contains(code);
+	}
+
 }
