@@ -39,12 +39,12 @@ repositories {
 // DEPENDENCIES (Which JAR files to download and host locally)
 dependencies {
 
-	compile group: 'com.google.guava',     name: 'guava',             version: '20.0'
-	compile group: 'org.slf4j',            name: 'slf4j-api',         version: '1.7.25'
-	compile group: 'org.apache.commons',   name: 'commons-lang3',     version: '3.0'
-	compile group: 'javax.servlet', 	   name: 'javax.servlet-api', version: '3.1.0'
-	compile group: 'commons-codec',        name: 'commons-codec',     version: '1.4'
+	implementation group: 'com.google.guava',     name: 'guava',             version: '20.0'
+	implementation group: 'org.slf4j',            name: 'slf4j-api',         version: '1.7.25'
+	implementation group: 'org.apache.commons',   name: 'commons-lang3',     version: '3.0'
+	implementation group: 'javax.servlet', 	   name: 'javax.servlet-api', version: '3.1.0'
+	implementation group: 'commons-codec',        name: 'commons-codec',     version: '1.4'
 
-	compile project(":robindrew-common")
+	implementation project(":robindrew-common")
 
 }
